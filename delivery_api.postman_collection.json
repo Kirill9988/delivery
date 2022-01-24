@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "de0d0b69-35bd-4da3-b572-9d6a79d574af",
+		"name": "delivery_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add couriers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": [\n        {\n            \"courier_id\": 1,\n            \"courier_type\": \"foot\",\n            \"regions\": [1, 12, 22],\n            \"working_hours\": [\"11:35-14:05\", \"09:00-11:00\"]\n        },\n        {\n            \"courier_id\": 2,\n            \"courier_type\": \"bike\",\n            \"regions\": [22],\n            \"working_hours\": [\"09:00-18:00\"]\n        },\n        {\n            \"courier_id\": 3,\n            \"courier_type\": \"car\",\n            \"regions\": [12, 22, 23, 33],\n            \"working_hours\": []\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/couriers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"couriers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit info courier",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"working_hours\": [\"08:11-10:20\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/couriers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"couriers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"data\": [ {\n            \"order_id\": 1,\n            \"weight\": 0.23,\n            \"region\": 12,\n            \"delivery_hours\": [\"08:00-11:00\", \"21:00-12:00\"]\n        }, {\n            \"order_id\": 2,\n            \"weight\": 1,\n            \"region\": 1,\n            \"delivery_hours\": [\"11:00-15:00\"]\n        }, {\n            \"order_id\": 3,\n            \"weight\": 0.01,\n            \"region\": 22,\n            \"delivery_hours\": [\"13:00-17:00\"]\n        }, {\n            \"order_id\": 4,\n            \"weight\": 0.5,\n            \"region\": 22,\n            \"delivery_hours\": [\"22:00-23:00\"]\n        }, {\n            \"order_id\": 5,\n            \"weight\": 0.5,\n            \"region\": 22,\n            \"delivery_hours\": [\"23:00-23:40\"]\n        }, {\n            \"order_id\": 6,\n            \"weight\": 0.5,\n            \"region\": 22,\n            \"delivery_hours\": [\"01:00-03:00\"]\n        },\n        {\n            \"order_id\": 123,\n            \"weight\": 2,\n            \"region\": 1,\n            \"delivery_hours\": [\"00:00-01:00\"]\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/orders",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders assign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/orders/assign",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"orders",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders complete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/orders/complete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"orders",
+						"complete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
